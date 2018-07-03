@@ -54,7 +54,7 @@ def generate_style():
 
 def analysis_original_file(filename):
     d = defaultdict()
-    with open(filename, encoding='Big5') as f:
+    with open(filename, encoding='gbk') as f:
         for line in f:
             row = line.split(',')
             if row[0].startswith('LOT ID'):
