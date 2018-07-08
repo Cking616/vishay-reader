@@ -60,7 +60,11 @@ def analysis_original_file(filename):
             if row[0].startswith('LOT ID'):
                 d['id'] = row[1]
             if row[0].startswith('RECEIPE'):
-                d['rec'] = row[1] + row[2]
+                if len(row) > 1:
+                    d['rec'] = row[1]
+                if len(row) > 2:
+                    for i in range(2, len(row)):
+                        d['rec'] = d['rec'] + row[i]
             if row[0].startswith('STARTTIME'):
                 d['stime'] = row[1]
             if row[0].startswith('ENDTIME'):
