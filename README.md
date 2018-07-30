@@ -10,7 +10,7 @@ CVS读取转换工具
    ![][img2]
 
 # 使用方法
-1) exe下载地址：[下载地址](https://github.com/Cking616/vishay-reader/releases/tag/0.1.0)
+1) exe下载地址：[下载地址](https://github.com/Cking616/vishay-reader/releases)
 2) 运行exe文件
 
  ![][img3]
