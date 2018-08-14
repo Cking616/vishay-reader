@@ -57,20 +57,38 @@ def analysis_original_file(filename):
     with open(filename, encoding='gbk') as f:
         for line in f:
             row = line.split(',')
-            if row[0].startswith('LOT ID'):
+            key_str = row[0].strip()
+            key_str = key_str.strip('"')
+            key_str = key_str.strip("'")
+            if key_str.startswith('LOT ID'):
                 d['id'] = row[1]
-            if row[0].startswith('RECEIPE'):
+                d['id'] = d['id'].strip()
+                d['id'] = d['id'].strip('"')
+                d['id'] = d['id'].strip("'")
+            if key_str.startswith('RECEIPE'):
                 if len(row) > 1:
                     d['rec'] = row[1]
                 if len(row) > 2:
                     for i in range(2, len(row)):
                         d['rec'] = d['rec'] + row[i]
-            if row[0].startswith('STARTTIME'):
+                d['rec'] = d['rec'].strip()
+                d['rec'] = d['rec'].strip('"')
+                d['rec'] = d['rec'].strip("'")
+            if key_str.startswith('STARTTIME'):
                 d['stime'] = row[1]
-            if row[0].startswith('ENDTIME'):
+                d['stime'] = d['stime'].strip()
+                d['stime'] = d['stime'].strip('"')
+                d['stime'] = d['stime'].strip("'")
+            if key_str.startswith('ENDTIME'):
                 d['etime'] = row[1]
-            if row[0].startswith('COUNT'):
+                d['etime'] = d['etime'].strip()
+                d['etime'] = d['etime'].strip('"')
+                d['etime'] = d['etime'].strip("'")
+            if key_str.startswith('COUNT'):
                 d['count'] = row[1]
+                d['count'] = d['count'].strip()
+                d['count'] = d['count'].strip('"')
+                d['count'] = d['count'].strip("'")
     return d
 
 
